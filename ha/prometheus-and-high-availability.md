@@ -12,7 +12,7 @@ Prometheus的本地存储给Prometheus带来了简单高效的使用体验，可
 
 ![基本HA](./static/promethues-ha-01.png)
 
-基本的HA模式只能确保Prometheus服务的可用性问题，但是不解决Prometheus Server之间的数据一致性问题以及持久化问题(数据丢失后无法恢复)，也无法进行动态的扩展。因此这种部署方式适合监控规模不大，Promthues Server也不会频繁发生迁移的情况，并且只需要保存短周期监控数据的场景。
+基本的HA模式只能确保Prometheus服务的可用性问题，但是不解决Prometheus Server之间的数据一致性问题以及持久化问题(数据丢失后无法恢复)，也无法进行动态的扩展。因此这种部署方式适合监控规模不大，Prometheus Server也不会频繁发生迁移的情况，并且只需要保存短周期监控数据的场景。
 
 ## 基本HA + 远程存储
 
@@ -20,7 +20,7 @@ Prometheus的本地存储给Prometheus带来了简单高效的使用体验，可
 
 ![HA + Remote Storage](./static/prometheus-ha-remote-storage.png)
 
-在解决了Promthues服务可用性的基础上，同时确保了数据的持久化，当Promthues Server发生宕机或者数据丢失的情况下，可以快速的恢复。 同时Prometheus Server可能很好的进行迁移。因此，该方案适用于用户监控规模不大，但是希望能够将监控数据持久化，同时能够确保Prometheus Server的可迁移性的场景。
+在解决了Prometheus服务可用性的基础上，同时确保了数据的持久化，当Prometheus Server发生宕机或者数据丢失的情况下，可以快速的恢复。 同时Prometheus Server可能很好的进行迁移。因此，该方案适用于用户监控规模不大，但是希望能够将监控数据持久化，同时能够确保Prometheus Server的可迁移性的场景。
 
 ## 基本HA + 远程存储 + 联邦集群
 
