@@ -12,9 +12,9 @@ Prometheus的本地存储设计可以减少其自身运维和管理的复杂度�
 
 ## Remote Read
 
-如下图所示，Promthues的Remote Read(远程读)也通过了一个适配器实现。在远程读的流程当中，当用户发起查询请求后，Promthues将向remote_read中配置的URL发起查询请求(matchers,ranges)，Adaptor根据请求条件从第三方存储服务中获取响应的数据。同时将数据转换为Promthues的原始样本数据返回给Prometheus Server。
+如下图所示，Prometheus的Remote Read(远程读)也通过了一个适配器实现。在远程读的流程当中，当用户发起查询请求后，Prometheus将向remote_read中配置的URL发起查询请求(matchers,ranges)，Adaptor根据请求条件从第三方存储服务中获取响应的数据。同时将数据转换为Prometheus的原始样本数据返回给Prometheus Server。
 
-当获取到样本数据后，Promthues在本地使用PromQL对样本数据进行二次处理。
+当获取到样本数据后，Prometheus在本地使用PromQL对样本数据进行二次处理。
 
 > 注意：启用远程读设置后，只在数据查询时有效，对于规则文件的处理，以及Metadata API的处理都只基于Prometheus本地存储完成。
 
@@ -155,18 +155,18 @@ func main() {
 
 目前Prometheus社区也提供了部分对于第三方数据库的Remote Storage支持：
 
-| 存储服务                  | 支持模式 |
-|---------------- ---------|-------|
-| AppOptics                | write |
-| Chronix                  | write |
-| Cortex:                  | read/write |
-| CrateDB                  | read/write|
-| Gnocchi                  | write|
-| Graphite                 | write|
-| InfluxDB                 | read/write|
-| OpenTSDB                 | write|
-| PostgreSQL/TimescaleDB:  | read/write|
-| SignalFx                 | write|
+| 存储服务                  | 支持模式 |  
+|--------------------------|-------|  
+| AppOptics                | write |  
+| Chronix                  | write |  
+| Cortex:                  | read/write |  
+| CrateDB                  | read/write|  
+| Gnocchi                  | write|  
+| Graphite                 | write|  
+| InfluxDB                 | read/write|  
+| OpenTSDB                 | write|  
+| PostgreSQL/TimescaleDB:  | read/write|  
+| SignalFx                 | write|  
 
 这里将介绍如何使用Influxdb作为Prometheus的Remote Storage，从而确保当Prometheus发生宕机或者重启之后能够从Influxdb中恢复和获取历史数据。
 
