@@ -6,7 +6,7 @@ Prometheus内置了一个基于本地存储的时间序列数据库。在Prometh
 
 除了本地存储方面的问题，由于Prometheus基于Pull模型，当有大量的Target需要采样本时，单一Prometheus实例在数据抓取时可能会出现一些性能问题，联邦集群的特性可以让Prometheus将样本采集任务划分到不同的Prometheus实例中，并且通过一个统一的中心节点进行聚合，从而可以使Prometheuse可以根据规模进行扩展。
 
-除了讨论Prometheus自身的高可用，Alertmanager作为Promthues体系中的告警处理中心，本章的最后部分会讨论如何实现Alertmanager的高可用部署。
+除了讨论Prometheus自身的高可用，Alertmanager作为Prometheus体系中的告警处理中心，本章的最后部分会讨论如何实现Alertmanager的高可用部署。
 
 本章的主要内容：
 * Prometheus本地存储机制
