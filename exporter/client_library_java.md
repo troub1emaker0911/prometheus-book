@@ -158,7 +158,7 @@ public class YourClass {
 }
 ```
 
-Gauge继承自Collector，registoer()方法会将该Gauge实例注册到CollectorRegistry中。这里创建了一个名为inprogress_requests的监控指标，其注释信息为"Inprogress requests"。
+Gauge继承自Collector，register()方法会将该Gauge实例注册到CollectorRegistry中。这里创建了一个名为inprogress_requests的监控指标，其注释信息为"Inprogress requests"。
 
 Gauge对象主要包含两个方法inc()和dec()，分别用于计数器+1和-1。
 
