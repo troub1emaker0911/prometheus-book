@@ -76,8 +76,8 @@ localhost:9100
 
 |函数|作用|
 |--|---|
-|label_values(label)|返回Promthues所有监控指标中，标签名为label的所有可选值|
-|label_values(metric, label)|返回Promthues所有监控指标metric中，标签名为label的所有可选值|
+|label_values(label)|返回Prometheus所有监控指标中，标签名为label的所有可选值|
+|label_values(metric, label)|返回Prometheus所有监控指标metric中，标签名为label的所有可选值|
 |metrics(metric)|返回所有指标名称满足metric定义正则表达式的指标名称|
 |query_result(query)|返回prometheus查询语句的查询结果|
 
