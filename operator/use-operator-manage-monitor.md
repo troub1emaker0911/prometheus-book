@@ -2,7 +2,7 @@
 
 ### 使用PrometheusRule定义告警规则
 
-对于Prometheus而言，在原生的管理方式上，我们需要手动创建Prometheus的告警文件，并且通过在Prometheus配置中声明式的加载。而在Prometheus Operator模式中，告警规则也编程一个通过Kubernetes API 声明式创建的一个资源，如下所示：
+对于Prometheus而言，在原生的管理方式上，我们需要手动创建Prometheus的告警文件，并且通过在Prometheus配置中声明式的加载。而在Prometheus Operator模式中，告警规则也变成一个通过Kubernetes API 声明式创建的一个资源，如下所示：
 
 ```
 apiVersion: monitoring.coreos.com/v1
@@ -169,23 +169,4 @@ spec:
   alertmanagers:
   - kubernetes_sd_configs:
     - role: endpoints
-      namespaces:
-        names:
-        - monitoring
-    scheme: http
-    path_prefix: /
-    timeout: 10s
-    relabel_configs:
-    - source_labels: [__meta_kubernetes_service_name]
-      separator: ;
-      regex: alertmanager-example
-      replacement: $1
-      action: keep
-    - source_labels: [__meta_kubernetes_endpoint_port_name]
-      separator: ;
-      regex: web
-      replacement: $1
-      action: keep
-```
-
-通过服务发现规则将Prometheus与Alertmanager进行了自动关联。
+      
