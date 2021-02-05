@@ -91,7 +91,7 @@ up{instance="localhost:9100",job="node"}	1
 label_replace(v instant-vector, dst_label string, replacement string, src_label string, regex string)
 ```
 
-该函数会依次对v中的每一条时间序列进行处理，通过regex匹配src_label的值，并将匹配部分relacement写入到dst_label标签中。如下所示：
+该函数会依次对v中的每一条时间序列进行处理，通过regex匹配src_label的值，并将匹配部分replacement写入到dst_label标签中。如下所示：
 
 ```
 label_replace(up, "host", "$1", "instance",  "(.*):.*")
